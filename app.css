@@ -1,0 +1,11 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.done {
+    text-decoration: line-through;
+    color: #aaa;
+    font-size: 0.9rem;
+}
