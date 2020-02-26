@@ -68,4 +68,4 @@ new Vue({
             this.tasks = this.tasks.filter(task => !task.done);
         }
     }
-})
+});
