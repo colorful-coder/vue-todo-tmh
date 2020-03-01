@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <!-- Bootstrap CSS  -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- Animate CSS  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <!-- Custom CSS  -->
     <link rel="stylesheet" href="app.css">
 
@@ -31,8 +33,13 @@
                         </div>
                     </div>
 
-                    <ul class="list-group list-group-flush mb-2">
-                        <li class="list-group-item" v-for="task in taskFiltered">
+                    <transition-group name="fade"
+                    enter-active-class="animated fadeInUp"
+                    leave-active-class="animated fadeOutDown"
+                    tag="ul" 
+                    class="list-group list-group-flush mb-2"
+                    >
+                        <li class="list-group-item" v-for="task in taskFiltered" :key="task.id">
                             <input type="checkbox" class="mr-2" v-model="task.done">
 
                             <input v-if="task.editMode" type="text" v-model="task.name" @blur="doneEditTask(task)"
@@ -46,7 +53,8 @@
                                 <i class="fas fa-trash-alt text-danger"></i>
                             </button>
                         </li>
-                    </ul>
+                    </transition-group>
+                    
 
                 </div>
             </div>
